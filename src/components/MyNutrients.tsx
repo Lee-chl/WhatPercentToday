@@ -1,6 +1,6 @@
 import {Box, Fab, Popover, Typography} from "@mui/material";
 import {useState} from "react";
-import SearchIcon from "@mui/icons-material/Search";
+import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
 
 export function MyNutrients() {
     const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
@@ -21,7 +21,7 @@ export function MyNutrients() {
         <Box sx={{position: 'fixed', bottom: 32, right: 32}}>
             {/* 우측 하단 고정 버튼 (Floating Action Button/플로팅 액션 버튼) */}
             <Fab color="primary" aria-label="calculation" onClick={handleClick}>
-                <SearchIcon/>
+                <SelfImprovementIcon fontSize='large'/>
             </Fab>
 
             <Popover
