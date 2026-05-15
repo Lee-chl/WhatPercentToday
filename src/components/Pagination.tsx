@@ -19,19 +19,17 @@ export default function Pagination({
   return (
     <div style={{ textAlign: "center" }}>
       <Button
-        variant="outlined"
-        style={{ marginRight: "8px" }}
+        style={{ color:'rgba(184, 184, 184, 1)'}}
         onClick={prevPage}
       >
-        이전
+        &lt;
       </Button>
-      <span>{pageNum}</span>
+      <span style={{color:'rgba(139, 139, 139, 1)'}}>{pageNum}</span>
       <Button
-        variant="outlined"
-        style={{ marginLeft: "8px" }}
+        style={{ color:'rgba(184, 184, 184, 1)' , width:'22px', height:'22px', borderRadius:'7px', border:'1px' }}
         onClick={nextPage}
       >
-        다음
+        &gt;
       </Button>
     </div>
   );

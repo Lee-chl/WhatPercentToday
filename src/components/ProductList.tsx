@@ -18,15 +18,15 @@ export default function ProductList({ foods }: ProductListProps) {
   return (
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
-        <TableHead>
+        <TableHead sx={{bgcolor:'rgb(60,104,199)'}}>
           <TableRow>
-            <TableCell>검색한 음식</TableCell>
-            <TableCell align="center">칼로리</TableCell>
-            <TableCell align="center">탄수화물&nbsp;(g)</TableCell>
-            <TableCell align="center">단백질&nbsp;(g)</TableCell>
-            <TableCell align="center">지방&nbsp;(g)</TableCell>
-            <TableCell align="center">나트륨&nbsp;(mg)</TableCell>
-            <TableCell align="center">추가 / 삭제</TableCell>
+            <TableCell align="center" sx={{color:'#FFFFFF'}}>검색한 음식</TableCell>
+            <TableCell align="center" sx={{color:'#FFFFFF'}}>칼로리</TableCell>
+            <TableCell align="center" sx={{color:'#FFFFFF'}}>탄수화물&nbsp;(g)</TableCell>
+            <TableCell align="center" sx={{color:'#FFFFFF'}}>단백질&nbsp;(g)</TableCell>
+            <TableCell align="center" sx={{color:'#FFFFFF'}}>지방&nbsp;(g)</TableCell>
+            <TableCell align="center" sx={{color:'#FFFFFF'}}>나트륨&nbsp;(mg)</TableCell>
+            <TableCell align="center" sx={{color:'#FFFFFF',bgcolor:'rgb(50,87,169)'}}>추가 / 삭제</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

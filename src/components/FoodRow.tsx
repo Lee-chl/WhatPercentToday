@@ -60,27 +60,27 @@ export default function FoodRow({ food }: FoodProps) {
   return (
     <React.Fragment>
       <TableRow>
-        <TableCell align="center">{food.FOOD_NM_KR}</TableCell>
-        <TableCell align="center">
+        <TableCell align="center" sx={{bgcolor:'rgba(240, 245, 255, 1)'}}>{food.FOOD_NM_KR}</TableCell>
+        <TableCell align="center" sx={{bgcolor:'rgba(240, 245, 255, 1)'}}>
           {Math.round(Number(food.AMT_NUM1.replace(",", "")))}
         </TableCell>
-        <TableCell align="center">
+        <TableCell align="center" sx={{bgcolor:'rgba(240, 245, 255, 1)'}}>
           {Math.round(Number(food.AMT_NUM6.replace(",", "")))}
         </TableCell>
-        <TableCell align="center">
+        <TableCell align="center" sx={{bgcolor:'rgba(240, 245, 255, 1)'}}>
           {Math.round(Number(food.AMT_NUM3.replace(",", "")))}
         </TableCell>
-        <TableCell align="center">
+        <TableCell align="center" sx={{bgcolor:'rgba(240, 245, 255, 1)'}}>
           {Math.round(Number(food.AMT_NUM4.replace(",", "")))}
         </TableCell>
-        <TableCell align="center">
+        <TableCell align="center" sx={{bgcolor:'rgba(240, 245, 255, 1)'}}>
           {Math.round(Number(food.AMT_NUM13.replace(",", "")))}
         </TableCell>
-        <TableCell align="center">
+        <TableCell align="center" sx={{bgcolor:'rgba(221, 232, 255, 1)'}}>
           <Tooltip title="한 개 기준">
             <span>
-              <Button onClick={() => changeMyNutrients("plus")}>+</Button>
-              <Button onClick={() => changeMyNutrients("minus")}>-</Button>
+              <Button onClick={() => changeMyNutrients("plus")} sx={{marginRight:'10px', padding:'4px 8px',minWidth:'auto',bgcolor:'rgba(60, 104, 199, 1)',borderRadius:'90px',color:'#FFFFFF'}}>+</Button>
+              <Button onClick={() => changeMyNutrients("minus")} sx={{padding:'4px 8px',minWidth:'auto',bgcolor:'rgba(60, 104, 199, 1)',borderRadius:'90px',color:'#FFFFFF'}}>-</Button>
             </span>
           </Tooltip>
         </TableCell>

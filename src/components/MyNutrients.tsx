@@ -8,7 +8,8 @@ import { percent } from "../util/inTakeNutrients.ts";
 import MoodIcon from "@mui/icons-material/Mood";
 import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
 import SentimentDissatisfiedIcon from "@mui/icons-material/SentimentDissatisfied";
-import MoodBadIcon from "@mui/icons-material/MoodBad";
+import SentimentVeryDissatisfiedTwoToneIcon from '@mui/icons-material/SentimentVeryDissatisfiedTwoTone';
+import MoodBadTwoToneIcon from '@mui/icons-material/MoodBadTwoTone';
 import type { MyNutrientType, waringImageType } from "../types/FoodType.tsx";
 
 export function MyNutrients() {
@@ -34,7 +35,7 @@ export function MyNutrients() {
   const open = Boolean(anchorEl);
 
   const mynutirents = useSelector((state: RootState) => state.nutrients);
-  
+
   const showPercent = useMemo(() => {
     return percent(mynutirents);
   }, [mynutirents]);
@@ -52,34 +53,34 @@ export function MyNutrients() {
   function makeIconImage(nutrient: number, type: string) {
     switch (type) {
       case "percent":
-        if (nutrient >= 100) return <MoodBadIcon />; 
+        if (nutrient >= 150) return <SentimentVeryDissatisfiedTwoToneIcon />;
+        else if(nutrient >=100) return <MoodBadTwoToneIcon/>
         else if (nutrient >= 70) return <SentimentDissatisfiedIcon />;
         else if (nutrient >= 50) return <SentimentSatisfiedIcon />;
         else return <MoodIcon />;
       case "sodium":
-        if (nutrient >= 3000) return <MoodBadIcon />;
-        else if (nutrient >= 2300) return <SentimentDissatisfiedIcon />;
-        else if (nutrient >= 2000) return <SentimentSatisfiedIcon />;
+        if (nutrient >= 3000) return <SentimentVeryDissatisfiedTwoToneIcon />;
+        else if (nutrient >= 2300) return <MoodBadTwoToneIcon />;
+        else if (nutrient >= 2000) return <SentimentDissatisfiedIcon />;
+        else if (nutrient >= 1500) return <SentimentSatisfiedIcon/>
         else return <MoodIcon />;
     }
   }
 
   useEffect(() => {
-    if (nutrientForImg.sodium) {
-      const sodiumIcon = makeIconImage(nutrientForImg.sodium, "sodium");
-      setIconImage({ ...iconImage, sodium: sodiumIcon });
-    }
+    const sodiumIcon = makeIconImage(nutrientForImg.sodium, "sodium");
     const calorieIcon = makeIconImage(calorie, "percent");
-    setIconImage({ ...iconImage, calorie: calorieIcon });
     const carbohydrateIcon = makeIconImage(carbohydrate, "percent");
-    setIconImage({
-      ...iconImage,
-      carbohydrate: carbohydrateIcon,
-    });
     const proteinIcon = makeIconImage(protein, "percent");
-    setIconImage({ ...iconImage, protein: proteinIcon });
     const fatIcon = makeIconImage(fat, "percent");
-    setIconImage({ ...iconImage, fat: fatIcon });
+
+    setIconImage({
+      calorie: calorieIcon,
+      carbohydrate: carbohydrateIcon,
+      protein: proteinIcon,
+      fat: fatIcon,
+      sodium: sodiumIcon,
+    });
   }, [mynutirents]);
 
   return (
@@ -101,7 +102,7 @@ export function MyNutrients() {
           paper: {
             sx: {
               width: 400,
-              height: 400,
+              height: 500,
               display: "flex",
               flexDirection: "column",
               borderRadius: "20px",
@@ -145,6 +146,9 @@ export function MyNutrients() {
             탄수화물: 250g 단백질: 100g
             <br />
             지방: 65g
+            <br />
+            나트륨: 2000 이하(안전)
+            <br /> 2,300mg 이상(경고) <br /> 3,000mg 이상(고위험)
             <br />
           </Typography>
           <Typography
