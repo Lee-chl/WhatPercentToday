@@ -28,7 +28,7 @@ export default function SearchArea() {
 
   return (
     <div>
-      <SearchBar onChangeFoodName={onChangeFoodName} />
+      <SearchBar onChangeFoodName={onChangeFoodName} onChangePageNum={onChangePageNum}/>
       <ProductList foods={foods} />
       <Pagination pageNum={pageNum} onChangePageNum={onChangePageNum}/>
     </div>
