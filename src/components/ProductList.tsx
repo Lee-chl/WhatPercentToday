@@ -20,7 +20,9 @@ export default function ProductList({ foods }: ProductListProps) {
       <Table aria-label="collapsible table">
         <TableHead sx={{bgcolor:'rgb(60,104,199)'}}>
           <TableRow>
+
             <TableCell align="center" sx={{color:'#FFFFFF'}}>검색한 음식</TableCell>
+            <TableCell align='center' sx={{color:'#FFFFFF'}}>브랜드</TableCell>
             <TableCell align="center" sx={{color:'#FFFFFF'}}>칼로리</TableCell>
             <TableCell align="center" sx={{color:'#FFFFFF'}}>탄수화물&nbsp;(g)</TableCell>
             <TableCell align="center" sx={{color:'#FFFFFF'}}>단백질&nbsp;(g)</TableCell>
